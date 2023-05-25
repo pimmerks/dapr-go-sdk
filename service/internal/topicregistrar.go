@@ -58,6 +58,9 @@ func (m TopicRegistrar) AddSubscription(sub *common.Subscription, fn common.Topi
 		}
 		ts.DefaultHandler = fn
 	}
+	if sub.DeadLetterTopic != "" {
+		ts.Subscription.DeadLetterTopic = &sub.DeadLetterTopic
+	}
 	ts.RouteHandlers[sub.Route] = fn
 
 	return nil

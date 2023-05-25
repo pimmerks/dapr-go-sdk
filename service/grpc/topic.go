@@ -48,6 +48,10 @@ func (s *Server) ListTopicSubscriptions(ctx context.Context, in *empty.Empty) (*
 			Metadata:   s.Metadata,
 			Routes:     convertRoutes(s.Routes),
 		}
+		if s.DeadLetterTopic != nil {
+			sub.DeadLetterTopic = *s.DeadLetterTopic
+		}
+
 		subs = append(subs, sub)
 	}
 

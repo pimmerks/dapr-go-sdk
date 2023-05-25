@@ -101,6 +101,8 @@ type Subscription struct {
 	Priority int `json:"priority"`
 	// DisableTopicValidation allows to receive events from publisher topics that differ from the subscribed topic.
 	DisableTopicValidation bool `json:"disableTopicValidation"`
+	// DeadLetterTopic is the name of the dead letter topic
+	DeadLetterTopic string `json:"deadLetterTopic"`
 }
 
 const (
